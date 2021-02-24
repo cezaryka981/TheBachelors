@@ -1,7 +1,7 @@
 import RPi.GPIO as GPIO
 import time
 import os
-from gpiozero import LED, Button
+
 
 button = 16
 led    = 18
