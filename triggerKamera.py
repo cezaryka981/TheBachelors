@@ -8,9 +8,9 @@ led    = 18
 
 
 
-
+				
 def setup():
-       GPIO.setmode(GPIO.BOARD)
+       GPIO.setmode(GPIO.BOARD) #I RPi.GPIO så kan du enten bruke pin numrene (BOARD), eller Broadcom GPIO numrene (BCM). Men man kan kun bruke en av de i et prosjekt.
        GPIO.setup(button, GPIO.IN, pull_up_down=GPIO.PUD_UP)
        GPIO.setup(led, GPIO.OUT)
 
@@ -19,7 +19,7 @@ def loop():
               button_state = GPIO.input(button)
               if  button_state == False:
                   GPIO.output(led, True)
-	          os.system('./webcam.sh')
+	          os.system('./webcam.sh')#os.system lar deg skrive inn terminalkommandoer i pythonprogrammet.
                   print('Picture taken...')
                   os.system('sudo python trueFalseGPIO.py') 
                   while GPIO.input(button) == False:
@@ -29,7 +29,7 @@ def loop():
 
 def endprogram():
          GPIO.output(led, False)
-         GPIO.cleanup()
+         GPIO.cleanup() #Denne funksjonen resetter alle porter. Men den påvirker kun de portene som har blitt brukt i programmet. 
 
 
 if __name__ == '__main__':
