@@ -2,12 +2,8 @@ import RPi.GPIO as GPIO
 import time
 import os
 
-
 button = 16
 led    = 18
-
-
-
 				
 def setup():
        GPIO.setmode(GPIO.BOARD) #I RPi.GPIO så kan du enten bruke pin numrene (BOARD), eller Broadcom GPIO numrene (BCM). Men man kan kun bruke en av de i et prosjekt.
